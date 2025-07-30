@@ -2,7 +2,7 @@
 #
 # This script processes one or more video files, reducing their frame rate to
 # 1 frame per second (fps) and compressing them using the H.265 codec.
-# It outputs the processed videos with "_1fps" appended to their original
+# It outputs the processed videos with "_5fps" appended to their original
 # names.
 #
 #
@@ -44,15 +44,15 @@ fi
 for input in "$@"; do
     [ -f "$input" ] || { echo "❌ Skipping: $input (not a file)"; continue; }
 
-    [[ "$input" =~ _1fps\.mp4$ ]] && { echo "⏩ Skipping: $input"; continue; }
+    [[ "$input" =~ _5fps\.mp4$ ]] && { echo "⏩ Skipping: $input"; continue; }
 
-    output="${input%.*}_1fps.mp4"
+    output="${input%.*}_5fps.mp4"
 
     echo "🎥 Processing: $input → $output"
 
     file_start=$(date +%s)
 
-    ffmpeg -i "$input" -vf "fps=1" \
+    ffmpeg -i "$input" -vf "fps=5" \
         -c:v libx265 -preset medium -crf 25 \
         -an -tag:v hvc1 -map_metadata 0 \
         -movflags use_metadata_tags "$output"
@@ -64,4 +64,4 @@ done
 
 echo "All files processed."
 
-# End of make1fps.sh
+# End of make5fps.sh
