@@ -1,5 +1,5 @@
 # GoogleStreetViewScripts
- Scripts for converting videos before uploading to Google Street View
+WORK-IN-PROGRESS Scripts for converting videos before uploading to Google Street View
 
 2025-07-19 - I recently begain experimenting with uploading 360 video recordings taken with my Insta360 X5 camera to Google Street View. At 30 fps, these 8K video files can be HUGE, taking a long time to upload and process. Google does not ask for 30 fps, and instead recommends:
 
@@ -17,5 +17,7 @@ I began using **ffmpeg** to convert my videos down to 1fps (for the walking vide
 
 # See Also
 * https://www.google.com/streetview/contribute/
+
+These are primitive and bare bones scripts for now. As I work with them, I will clean them up and make them more flexible.
 
 More to come...
